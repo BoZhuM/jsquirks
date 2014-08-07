@@ -1,4 +1,4 @@
-### Javascript Quirks with Operations
+### Javascript Quirks with special values and Operations
 
 http://jsquirks.zhuboliu.me
 
@@ -45,4 +45,8 @@ If you found some hard and fast rule, please pull request.
   - angularjs: http://angularjs.org
   - checklist-model: http://vitalets.github.io/checklist-model/
 
+#### TODO
++ add some resourses helpful for understanding the value type converting.
++ add bitwise operators
++ add `new` to operators
 
