@@ -1,29 +1,29 @@
 ### Javascript Quirks with special values and Operations
 
-http://jsquirks.zhuboliu.me
+Demo online: http://jsquirks.zhuboliu.me
 
 #### Do What
 The App combinate the special values and values you selected to simple expressions, run it with the function `eval`, and display the list of outputs in a table and logged it in the console. By using this, you can find some weired pattern in javascript value type converting. 
 
 #### Special Values
 ```javascript
-	var special_values       = [NaN, null, undefined, 0, 1, 2, true, false, Infinity, -Infinity, " ", "a"];
+  var special_values       = [NaN, null, undefined, 0, 1, 2, true, false, Infinity, -Infinity, " ", "a"];
 ```
 
 #### Operators
 ```javascript
-	var arithmatic_operators = ["+", "-", "*", "/", '%'];
-	var comparison_operators = [">", ">=", "<", "<="];
-	var logical_operators    = ["&&", "||"];
-	var equality_operators   = ["==", "!=", "===", "!=="];
-	var bitwise_operators    = ["<<", "<<<", ">>", ">>>"];
-	var unary_operators      = ['typeof', 'void', '+', '-', '~', '!', '!!'];
-	var operators = {
-		arithmatic: arithmatic_operators,
-		comparison: comparison_operators,
-		logical: logical_operators,
-		equality: equality_operators
-	}
+  var arithmatic_operators = ["+", "-", "*", "/", '%'];
+  var comparison_operators = [">", ">=", "<", "<="];
+  var logical_operators    = ["&&", "||"];
+  var equality_operators   = ["==", "!=", "===", "!=="];
+  var bitwise_operators    = ["<<", "<<<", ">>", ">>>"];
+  var unary_operators      = ['typeof', 'void', '+', '-', '~', '!', '!!'];
+  var operators = {
+    arithmatic: arithmatic_operators,
+    comparison: comparison_operators,
+    logical: logical_operators,
+    equality: equality_operators
+  }
 ```
 You can add some other operations such as bitwise operaters to the list.
 

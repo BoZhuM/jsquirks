@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Javascript Quirks with special values and Operations">
+    <meta name="author" content="suffering">
     <title>JS Quirks</title>
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -47,67 +46,63 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-              <li class="active"><a href="#">Overview</a></li>
-              <li><a href="#">Reports</a></li>
-            </ul>
-			<p>
-			  Step 1: Select the special values(at least 2 of them); <br /><br />
-			  Step 2: Select the operater(s)(at least one);<br /><br />
-			  Step 3: Click button to generate the table of the expressions with output';
-			</p>
+            <p>
+              Step 1: Select the special values(at least 2 of them); <br /><br />
+              Step 2: Select the operater(s)(at least one);<br /><br />
+              Step 3: Click button to generate the table of the expressions with output';
+            </p>
           </div>
+          <!-- end of sidebar -->
           <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		  <div>			  
-			  <form>
-				  <table class='table table-bordered'>
-					  <tr>
-						  <td>values</td>
-						  <td colspan=2>
-							  <label ng-repeat="v in values" class='pull-left mr1'>
-							    <input type="checkbox" checklist-model="selected_values" checklist-value="v|wrapstring"> {{v | wrapstring}}
-							  </label>
-						  </td>
-					  </tr>
-					  <!-- sepcial values -->
-					  
-					  <tr>
-						  <td rowspan=6>operators</td>
-					  </tr>
-					  
-					  <tr ng-repeat='(k, operator) in operators'>
-						  <td>{{k}}</td>
-						  <td>
-							  <label ng-repeat="ao in operator" class='pull-left mr1'>
-							    <input type="checkbox" checklist-model="selected_operators" checklist-value="ao"> {{ao}}
-							  </label>
-						  </td>
-					  </tr>
-					  <!-- binary operators -->
-					  <tr>
-						  <td>Unary</td>
-						  <td>
-							  <label ng-repeat="uno in unary_operators" class='pull-left mr1'>
-							    <input type="checkbox" checklist-model="selected_unary_operators" checklist-value="uno"> {{uno}}
-							  </label>
-						  </td>
-					  </tr>
-					  <!-- unary operators -->
-					  <tr ng-show="selected_values.length > 1 && (selected_operators.length || selected_unary_operators.length)">
-					  	<td colspan=3>
-							<a ng-click='run(selected_values, selected_operators, selected_unary_operators, true)' class='btn btn-primary'>Run (m*n*(n+1)/2)</a>
-							<a ng-click='run(selected_values, selected_operators, selected_unary_operators, false)' class='btn btn-primary'>Run (m*n*n) </a> <span class='text-info'>// consider `a + b != b + a`</span>
-							<p class='text-info'>
-								m: the number of selected operators, n: the number of selected values.
-							</p>
-						</td>
-					  </tr>
-					  <!-- the selected items -->
-				  </table>
-			  </form>
-		  </div>
+            <form>
+              <table class='table table-bordered'>
+                <tr>
+                  <td>values</td>
+                  <td colspan=2>
+                    <label ng-repeat="v in values" class='pull-left mr1'>
+                      <input type="checkbox" checklist-model="selected_values" checklist-value="v|wrapstring"> {{v | wrapstring}}
+                    </label>
+                  </td>
+                </tr>
+                <!-- sepcial values -->
+                
+                <tr>
+                  <td rowspan=6>operators</td>
+                </tr>
+                
+                <tr ng-repeat='(k, operator) in operators'>
+                  <td>{{k}}</td>
+                  <td>
+                    <label ng-repeat="ao in operator" class='pull-left mr1'>
+                      <input type="checkbox" checklist-model="selected_operators" checklist-value="ao"> {{ao}}
+                    </label>
+                  </td>
+                </tr>
+                <!-- binary operators -->
+                <tr>
+                  <td>Unary</td>
+                  <td>
+                    <label ng-repeat="uno in unary_operators" class='pull-left mr1'>
+                      <input type="checkbox" checklist-model="selected_unary_operators" checklist-value="uno"> {{uno}}
+                    </label>
+                  </td>
+                </tr>
+                <!-- unary operators -->
+                <tr ng-show="selected_values.length > 1 && (selected_operators.length || selected_unary_operators.length)">
+                  <td colspan=3>
+                  <a ng-click='run(selected_values, selected_operators, selected_unary_operators, true)' class='btn btn-primary'>Run (m*n*(n+1)/2)</a>
+                  <a ng-click='run(selected_values, selected_operators, selected_unary_operators, false)' class='btn btn-primary'>Run (m*n*n) </a> <span class='text-info'>// consider `a + b != b + a`</span>
+                  <p class='text-info'>
+                    m: the number of selected operators, n: the number of selected values.
+                  </p>
+                </td>
+                </tr>
+                <!-- the selected items -->
+              </table>
+            </form>
+            <!-- end of form -->
             <div class="table-responsive" ng-show='output_binary'>
-			 <h4>Binary Operators</h4>
+              <h4>Binary Operators</h4>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -131,9 +126,9 @@
                 </tbody>
               </table>
             </div>
-
+            <!-- end of output_binary -->
             <div class="table-responsive" ng-show='output_unary'>
-			 <h4>Unary Operators</h4>
+              <h4>Unary Operators</h4>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -155,8 +150,12 @@
                 </tbody>
               </table>
             </div>
+            <!-- end of output_unary -->
           </div>
+          <!-- end of main -->
         </div>
+        <!-- end of row -->
       </div>
+      <!-- end of container-fluid -->
  </body>
 </html>
