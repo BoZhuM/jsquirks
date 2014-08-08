@@ -113,11 +113,12 @@ app.controller('quirks', ['$scope', function($scope){
   $scope.operators = Quirks.operators;
   $scope.values    = Quirks.values;
   $scope.unary_operators = Quirks.unary;
-  $scope.selected_operators = [];
-  $scope.selected_values    = [];
-  $scope.selected_unary_operators    = [];
+  $scope.selected_values    = ['NaN', 'undefined', 'true', '0', '1'];
+  $scope.selected_operators = ['+', '&&'];
+  $scope.selected_unary_operators    = ['typeof'];
   $scope.run = function(v, o, u, mode){
     $scope.output_binary = binary(v, o, mode);
     $scope.output_unary = unary(v, u);
   }
+  $scope.run($scope.selected_values,   $scope.selected_operators, $scope.selected_unary_operators, true);
 }])
